@@ -8,8 +8,17 @@ angular.module('minhasDiretivas', [])
 	ddo.restrict = 'AE' // A - attribute; E - Element
 
 	ddo.scope = {
-		titlo: '@titulo'
+		titlo: '@'
 	};
+
+	ddo.template = 
+			'<div data-ng-repeat="foto in fotos" class="panel panel-default">'
+        +	'    <div class="panel-heading">'
+        +	'        <h3 class="panel-title">{{ titulo }}</h3>'
+        +	'    </div>'
+        +	'    <div class="panel-body">'
+        +	'    </div>'
+        +	'</div>'
 
 	return ddo;
 });
