@@ -7,5 +7,9 @@ angular.module('minhasDiretivas', [])
 
 	ddo.restrict = 'AE' // A - attribute; E - Element
 
+	ddo.scope = {
+		titlo: '@titulo'
+	};
+
 	return ddo;
 });

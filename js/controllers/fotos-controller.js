@@ -1,3 +1,5 @@
+"use strict"; // reference: http://www.w3schools.com/js/js_strict.asp
+
 angular.module('alurapic').controller('FotosController', function ($scope, $http) {
 	
 	$scope.fotos = [];
