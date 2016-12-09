@@ -21,7 +21,7 @@
             <section class="row">
                 <div class="col-md-12">
                     <form action="">
-                        <input type="text" data-ng-model="filtro" class="form-control" placeholder="filter" title="Filtrar a lista" />
+                        <input type="text" data-ng-model="filtro" data-ng-model-options='{ debounce: 500 }' class="form-control" placeholder="filter" title="Filtrar a lista" autofocus="autofocus" />
                     </form>
                 </div>
             </section>
