@@ -2,7 +2,7 @@
 
 angular.module('minhasDiretivas', [])
 .directive('meuPainel', [function () {
-	// directive difinition object
+	// directive definition object
 	var ddo = {};
 
 	ddo.restrict = 'AE'; // A - attribute; E - Element
