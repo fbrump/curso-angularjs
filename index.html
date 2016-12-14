@@ -9,29 +9,15 @@
         <link rel="stylesheet" href="css/efeitos.css">
         <script src="js/lib/angular.min.js" type="text/javascript"></script>
         <script src="js/lib/angular-animate.min.js" type="text/javascript"></script>
+        <script src="js/lib/angular-route.min.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
         <script src="js/controllers/fotos-controller.js" type="text/javascript"></script>
         <script src="js/directives/minhas-diretivas.js" type="text/javascript"></script>
     </head>
     <body data-ng-controller="FotosController">
         <div class="container">
-            <header class="jumbotron">
-                <h1 class="text-center">Alurapic</h1>
-            </header>
 
-            <section class="row">
-                <div class="col-md-12">
-                    <form action="">
-                        <input type="search" data-ng-model="filtro" data-ng-model-options='{ debounce: 500 }' class="form-control" placeholder="filter" title="Filtrar a lista" autofocus="autofocus" />
-                    </form>
-                </div>
-            </section>
-
-            <section class="row">
-                <meu-painel class="col-md-2 painel-animado" data-ng-repeat="foto in fotos | filter: filtro" data-titulo="{{ foto.titulo }}">
-                    <img src="{{ foto.url }}" alt="{{ foto.titulo }}" title="{{ foto.titulo }}" class="img-responsive center-block" />
-                </meu-painel>
-            </section>
+            <ng-view></ng-view>
 
         </div><!-- fim container -->
     </body>
