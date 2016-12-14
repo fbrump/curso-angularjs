@@ -34,4 +34,4 @@ angular.module('minhasDiretivas', [])
 		
 
 	return ddo;
-}])
+}]);
