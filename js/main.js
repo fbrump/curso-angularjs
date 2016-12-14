@@ -1,8 +1,10 @@
 "use strict"; // reference: http://www.w3schools.com/js/js_strict.asp
 
 angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
-.config(['$routeProvider', function ($routeProvider) {
+.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	
+	$locationProvider.html5Mode(true);
+
 	$routeProvider.when('/fotos', {
 		templateUrl: 'partials/principal.html',
 		controller: 'FotosController'
