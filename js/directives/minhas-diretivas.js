@@ -30,7 +30,7 @@ angular.module('minhasDiretivas', [])
 
 	ddo.transclude = true;
 
-	ddo.templateUrl = 'js/directives/meuPainel.html';
+	ddo.templateUrl = 'js/directives/minhaFoto.html';
 		
 
 	return ddo;
