@@ -5,7 +5,12 @@
 <section class="row">
     <div class="col-md-12">
         <form action="">
-            <input type="search" data-ng-model="filtro" data-ng-model-options='{ debounce: 500 }' class="form-control" placeholder="filter" title="Filtrar a lista" autofocus="autofocus" />
+        	<div class="input-group">
+        		<span class="input-group-btn">
+        			<a href="fotos/new" class="btn btn-primary" title="Adicionar uma nova foto">Nova Foto</a>
+            	</span>
+            	<input type="search" data-ng-model="filtro" data-ng-model-options='{ debounce: 500 }' class="form-control" placeholder="filter" title="Filtrar a lista" autofocus="autofocus" />	
+        	</div>
         </form>
     </div>
 </section>
