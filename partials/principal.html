@@ -27,8 +27,10 @@
         <a href="/fotos/edit/{{ foto._id }}" class="btn btn-primary btn-block" title="Ir para a tela de edição">
         	Editar
     	</a>
-    	<button data-ng-click="remover(foto)" class="btn btn-danger btn-block" title="Remover a foto">
+    	<!-- <button data-ng-click="remover(foto)" class="btn btn-danger btn-block" title="Remover a foto">
     		Remover
-    	</button>
+    	</button> -->
+        <meu-botao-perigo nome="Remover" acao="remover(foto)">
+        </meu-botao-perigo>
     </meu-painel>
 </section>
