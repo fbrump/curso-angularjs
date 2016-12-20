@@ -18,5 +18,11 @@
 <section class="row">
     <meu-painel class="col-md-2 painel-animado" data-ng-repeat="foto in fotos | filter: filtro" data-titulo="{{ foto.titulo }}">
         <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
+        <a href="" class="btn btn-primary btn-block" title="Ir para a tela de edição">
+        	Editar
+    	</a>
+    	<button data-ng-click="remover(foto)" class="btn btn-danger btn-block" title="Remover a foto">
+    		Remover
+    	</button>
     </meu-painel>
 </section>
