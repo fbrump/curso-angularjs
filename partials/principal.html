@@ -2,12 +2,18 @@
     <h1 class="text-center">Alurapic</h1>
 </header>
 
+<p class="alert alert-info" data-ng-show="mensagem.length">
+	{{ mensagem }}
+</p>
+
 <section class="row">
     <div class="col-md-12">
         <form action="">
         	<div class="input-group">
         		<span class="input-group-btn">
-        			<a href="fotos/new" class="btn btn-primary" title="Adicionar uma nova foto">Nova Foto</a>
+        			<a href="fotos/new" class="btn btn-primary" title="Adicionar uma nova foto">
+        				Nova Foto
+    				</a>
             	</span>
             	<input type="search" data-ng-model="filtro" data-ng-model-options='{ debounce: 500 }' class="form-control" placeholder="filter" title="Filtrar a lista" autofocus="autofocus" />	
         	</div>
