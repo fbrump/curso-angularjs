@@ -29,6 +29,18 @@
 				<label for="decricao">Descrição</label>
 				<textarea name="descricai" id="descricao" data-ng-model="foto.descricao" cols="30" rows="10" class="form-control" placeholder="Descrição da foto" title="Entre com a descrição da foto" ></textarea>
 			</div>
+			<div class="form-group">
+				<label for="grupo">Grupo</label>
+				<select name="grupo" id="grupo" class="form-control" 
+				data-ng-controller="GruposController"
+				data-ng-model="foto.grupo"
+				data-ng-options="grupo._id as grupo.nome for grupo in grupos">
+					<option value="">Selecione Grupo</option>
+				</select>
+				<span data-ng-show="formulario.$submitted&&formulario.grupo.$error.required" class="form-control alert-danger">
+					Grupo obrigatório
+				</span>
+			</div>
 			<button type="submit" class="btn btn-primary" title="Salvar a foto" data-ng-disabled="formulario.$invalid">
 				Salvar
 			</button>
