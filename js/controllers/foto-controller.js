@@ -3,5 +3,10 @@
 
 angular.module('alurapic').controller('FotoController', ['$scope', function($scope){
 	
-	$scope.fotos = { };
+	$scope.foto = { };
+
+	$scope.submeter = function () {
+		console.log($scope.foto);
+	};
+
 }])

@@ -4,11 +4,14 @@
 </header>
 <hr />
 <section class="row">
-	<form action="" name="formulario">
+	<form novalidate="novalidate" action="" name="formulario" data-ng-submit="submeter()">
 		<div class="col-md-6">
 			<div class="form-group">
 				<label for="titulo">Título</label>
-				<input type="text" name="titulo" data-ng-model="foto.titulo" class="form-control" placeholder="Título da foto" title="Título da imagem" />
+				<input type="text" name="titulo" data-ng-model="foto.titulo" class="form-control" placeholder="Título da foto" title="Título da imagem" required="required" />
+				<span data-ng-show="formulario.titulo.$error.required" class="form-control alert-danger">
+					Título obrigatório
+				</span>
 			</div>
 			<div class="form-group">
 				<label for="URL">URL</label>
