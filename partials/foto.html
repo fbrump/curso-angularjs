@@ -4,24 +4,32 @@
 </header>
 <hr />
 <section class="row">
-	<form novalidate="novalidate" action="" name="formulario" data-ng-submit="submeter()">
+	<p data-ng-show="mensagem.length" class="alert alert-info">{{ mensagem }}</p>
+	
+	<form novalidate="novalidate" name="formulario" data-ng-submit="submeter()">
 		<div class="col-md-6">
 			<div class="form-group">
 				<label for="titulo">Título</label>
-				<input type="text" name="titulo" data-ng-model="foto.titulo" class="form-control" placeholder="Título da foto" title="Título da imagem" required="required" />
-				<span data-ng-show="formulario.titulo.$error.required" class="form-control alert-danger">
+				<input type="text" name="titulo" data-ng-model="foto.titulo" class="form-control" placeholder="Título da foto" title="Título da imagem" required="required" data-ng-maxlength="20" />
+				<span data-ng-show="formulario.$submitted&&formulario.titulo.$error.required" class="form-control alert-danger">
 					Título obrigatório
+				</span>
+				<span data-ng-show="formulario.$submitted&&formulario.titulo.$error.maxlength" class="form-control alert-danger">
+					Deve ter no máximo 20 caracteres
 				</span>
 			</div>
 			<div class="form-group">
 				<label for="URL">URL</label>
-				<input type="url" name="url" data-ng-model="foto.url" value="" class="form-control" placeholder="URL da foto" title="Entre com a URL da nova foto" />
+				<input type="url" name="url" data-ng-model="foto.url" value="" class="form-control" placeholder="URL da foto" title="Entre com a URL da nova foto" required="required"/>
+				<span data-ng-show="formulario.$submitted&&formulario.url.$error.required" class="form-control alert-danger">
+					URL obrigatória
+				</span>
 			</div>
 			<div class="form-group">
 				<label for="decricao">Descrição</label>
-				<textarea name="descricai" id="descricao" data-ng-model="foto.descricao" cols="30" rows="10" class="form-control" placeholder="Descrição da foto" title="Entre com a descrição da foto"></textarea>
+				<textarea name="descricai" id="descricao" data-ng-model="foto.descricao" cols="30" rows="10" class="form-control" placeholder="Descrição da foto" title="Entre com a descrição da foto" ></textarea>
 			</div>
-			<button type="submit" class="btn btn-primary" title="Salvar a foto">
+			<button type="submit" class="btn btn-primary" title="Salvar a foto" data-ng-disabled="formulario.$invalid">
 				Salvar
 			</button>
 			<a href="/" class="btn btn-default" title="Voltar para a tela principal">
