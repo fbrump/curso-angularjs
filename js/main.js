@@ -1,6 +1,6 @@
 "use strict"; // reference: http://www.w3schools.com/js/js_strict.asp
 
-angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'ngResource'])
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	
 	$locationProvider.html5Mode(true);

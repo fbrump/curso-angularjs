@@ -1,16 +1,16 @@
 "use strict"; // reference: http://www.w3schools.com/js/js_strict.asp
 
-angular.module('alurapic').controller('FotosController', function ($scope, $http) {
+angular.module('alurapic').controller('FotosController', function ($scope, $http, $resource) {
 	
 	$scope.fotos = [];
 	$scope.filtro = '';
 	$scope.mensagem = '';
 
-	var promise = $http.get('v1/fotos')
-	.success(function (fotos) {
+	var recursoFoto = $resource('v1/fotos/:fotoId');
+
+	recursoFoto.query(function (fotos) {
 		$scope.fotos = fotos;
-	})
-	.error(function(erro) {
+	}, function (erro) {
 		console.error(erro);
 	});
 
