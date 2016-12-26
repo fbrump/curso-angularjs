@@ -47,4 +47,23 @@ angular.module('minhasDiretivas', [])
 	ddo.template = '<button data-ng-click="acao(foto)" class="btn btn-danger btn-block" title="{{ nome }}">{{ nome }}</button>';
 
 	return ddo;
-}]);
+}]).directive('meuFocus', [function () {
+	var ddo = {};
+
+	ddo.restrict = "A";
+
+	ddo.scope = {
+		focado: '='
+	};
+
+	ddo.link = function (scope, element) {
+		scope.$watch('focado', function () {
+			if (scope.focado){
+				element[0].focus();
+				scope.focado = false;
+			}
+		});
+	};
+
+	return ddo;
+}])
