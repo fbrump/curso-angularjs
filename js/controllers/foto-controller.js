@@ -1,27 +1,18 @@
 // public/js/controllers/foto-controller.js
 "use strict";
 
-angular.module('alurapic').controller('FotoController', ['$scope', '$http', '$resource', '$routeParams', 
-	function($scope, $http, $resource, $routeParams){
+angular.module('alurapic').controller('FotoController', ['$scope', 'cadastroDeFotos', 'recursoFoto', '$routeParams', 
+	function($scope, cadastroDeFotos, recursoFoto, $routeParams){
 	
 	$scope.foto = { };
 	$scope.mensagem = '';
 
-	var recursoFoto = $resource('v1/fotos/:fotoId', null, {
-		update: {
-			method: 'PUT'
-		}
-	});
-
 	if($routeParams.fotoId){
 		console.log($routeParams.fotoId);
-		$http.get('v1/fotos/' + $routeParams.fotoId)
-		.success(function (foto) {
+		recursoFoto.get({ fotoId:$routeParams.fotoId }, function (foto) {
 			console.log(foto)
 			$scope.foto = foto;
-		})
-		.error(function(erro) {
-			/* Act on the event */
+		}, function (erro) {
 			console.error(erro);
 			$scope.mensagem = 'Não foi possível obter a foto';
 		});
@@ -29,27 +20,14 @@ angular.module('alurapic').controller('FotoController', ['$scope', '$http', '$re
 
 	$scope.submeter = function () {
 		if ($scope.formulario.$valid){
-			if ($scope.foto._id){
-				recursoFoto.update({ fotoId: $scope.foto._id }, $scope.foto, function () {
-					$scope.mensagem = 'A foto ' + $scope.foto.titulo + ' foi alterada com sucesso';
-				}, function (erro) {
-					console.error(erro);
-					$scope.mensagem = 'Não foi possível alterar a foto ' + $scope.foto.titulo;
-				});
-
-			}else{
-				$http.post('v1/fotos', $scope.foto)
-				.success(function () {
-					$scope.foto = {};
-					$scope.mensagem = 'Foto incluida com sucesso';
-				})
-				.error(function(e) {
-					/* Act on the event */
-					$scope.mensagem = 'Não foi possível incluir a foto';
-					console.error(e);
-				});
-
-			}
+			cadastroDeFotos.cadastrar($scope.foto)
+			.then(function (dados) {
+				$scope.mensagem = dados.mensagem;
+				if (dados.inclusao) $scope.foto = {}
+			})
+			.catch(function (dados) {
+				$scope.mensagem = dados.mensagem;
+			})
 		}else{
 			console.info('O formulário não está válido.');
 		}
